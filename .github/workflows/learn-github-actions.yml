@@ -8,6 +8,7 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Perform a Pester test from the command-line
+      - name: Perform a Pester test from the Collect-PackagesToDelete.Tests.ps1 file
         shell: pwsh
-        run: Test-Path README.md | Should -Be $true
+        run: |
+          Invoke-Pester Collect-PackagesToDelete.Tests.Tests.ps1 -Passthru
