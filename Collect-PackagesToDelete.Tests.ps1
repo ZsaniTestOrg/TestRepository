@@ -1,4 +1,6 @@
-. "$PSScriptRoot/Collect-PackagesToDelete.ps1"
+BeforeAll { 
+    . "$PSScriptRoot/Collect-PackagesToDelete.ps1"
+}
 
 Describe "Collect-PackagesToDelete tests" {
 
