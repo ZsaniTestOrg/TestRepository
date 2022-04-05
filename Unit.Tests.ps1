@@ -1,3 +1,7 @@
+BeforeAll { 
+    . $PSScriptRoot/Collect-PackagesToDelete.ps1
+}
+
 Describe "Unit tests" {
 
     It "Test whether README exists" {
