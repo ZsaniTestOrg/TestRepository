@@ -3,11 +3,6 @@ BeforeAll {
 }
 
 Describe "Unit tests" {
-
-    It "Test whether README exists" {
-        Test-Path README.md | Should -Be $true
-    }
-
     It "Should delete the older packages which are younger than the retention age but over the hard limit" {
 
         # Arrange
