@@ -13,6 +13,7 @@ function Collect-PackagesToDelete {
         [int] $retentionHardLimit
     )
 
+    
     $packagesToDelete = @()
 
     $packageRetentionDate = (Get-Date).AddDays(-$retentionAge)
