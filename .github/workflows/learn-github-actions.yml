@@ -11,4 +11,10 @@ jobs:
       - name: Perform a Pester test from the Unit.Tests.ps1 file
         shell: pwsh
         run: |
-          Invoke-Pester Find-PackagesToDelete.Tests.ps1 -Passthru
+          Invoke-Pester Find-PackagesToDelete.Tests.ps1 -Passthru | Export-CliXml -Path Find-PackagesToDelete.Tests.xml
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: ubuntu-Find-PackagesToDelete-Tests
+          path: Find-PackagesToDelete.Tests.xml
+    if: ${{ always() }}
