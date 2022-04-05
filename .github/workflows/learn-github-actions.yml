@@ -11,4 +11,4 @@ jobs:
       - name: Perform a Pester test from the Collect-PackagesToDelete.Tests.ps1 file
         shell: pwsh
         run: |
-          Invoke-Pester Collect-PackagesToDelete.Tests.Tests.ps1 -Passthru
+          Invoke-Pester Collect-PackagesToDelete.Tests.ps1 -Passthru
