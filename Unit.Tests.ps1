@@ -1,5 +1,5 @@
 BeforeAll { 
-    . $PSScriptRoot/Collect-PackagesToDelete.ps1
+    . $PSScriptRoot/Find-PackagesToDelete.ps1
 }
 
 Describe "Unit tests" {

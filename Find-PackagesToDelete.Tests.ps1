@@ -1,8 +1,8 @@
 BeforeAll { 
-    . "$PSScriptRoot/Collect-PackagesToDelete.ps1"
+    . $PSScriptRoot/Find-PackagesToDelete.ps1
 }
 
-Describe "Collect-PackagesToDelete tests" {
+Describe "Find-PackagesToDelete tests" {
 
     It "Should not delete anything when there are older packages than the retention age but less than the retention count" {
 
@@ -13,7 +13,7 @@ Describe "Collect-PackagesToDelete tests" {
         $packageList += @{ name = "package1"; format = "helm"; uploaded_at = $packageUploadedDate; tags = @{ info = @("released") } }
 
         # Act
-        $result = Collect-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge $retentiionAge -retentionHardLimit 4
+        $result = Find-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge $retentiionAge -retentionHardLimit 4
 
         # Assert
         $result | Should -HaveCount 0
@@ -26,7 +26,7 @@ Describe "Collect-PackagesToDelete tests" {
         $packageList += @{ name = "package1"; format = "helm"; uploaded_at = Get-Date; tags = @{ info = @("released") } }
 
         # Act
-        $result = Collect-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge 2 -retentionHardLimit 4
+        $result = Find-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge 2 -retentionHardLimit 4
 
         # Assert
         $result | Should -HaveCount 0
@@ -41,7 +41,7 @@ Describe "Collect-PackagesToDelete tests" {
         $packageList += @{ name = "package1"; format = "helm"; uploaded_at = Get-Date; tags = @{ info = @("released") } }
 
         # Act
-        $result = Collect-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge 2 -retentionHardLimit 4
+        $result = Find-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge 2 -retentionHardLimit 4
 
         # Assert
         $result | Should -HaveCount 0
@@ -59,7 +59,7 @@ Describe "Collect-PackagesToDelete tests" {
         $packageList += @{ name = "package1"; format = "helm"; uploaded_at = (Get-Date).AddDays(-1); tags = @{ info = @("released") } }
 
         # Act
-        $result = Collect-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge 14 -retentionHardLimit 4
+        $result = Find-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge 14 -retentionHardLimit 4
 
         # Assert
         $result | Should -HaveCount 1
@@ -79,7 +79,7 @@ Describe "Collect-PackagesToDelete tests" {
         $packageList += @{ name = "package1"; format = "helm"; uploaded_at = $olderUploadedTime; tags = @{ info = @("released") } }
 
         # Act
-        $result = Collect-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge $retentionAge -retentionHardLimit 4
+        $result = Find-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge $retentionAge -retentionHardLimit 4
 
         # Assert
         $result | Should -HaveCount 1
@@ -103,7 +103,7 @@ Describe "Collect-PackagesToDelete tests" {
         $packageList += @{ id = 6; name = "package1"; format = "helm"; uploaded_at = $oldestUploadedTime; tags = @{ info = @("released") } }
 
         # Act
-        $result = Collect-PackagesToDelete -packageList $packageList -retentionCount 4 -retentionAge $retentionAge -retentionHardLimit 6
+        $result = Find-PackagesToDelete -packageList $packageList -retentionCount 4 -retentionAge $retentionAge -retentionHardLimit 6
 
         # Assert
         $result | Should -HaveCount 1
@@ -127,7 +127,7 @@ Describe "Collect-PackagesToDelete tests" {
         $packageList += @{ id = 6; name = "package1"; format = "helm"; uploaded_at = $oldestUploadedTime; tags = @{ info = @("released") } }
 
         # Act
-        $result = Collect-PackagesToDelete -packageList $packageList -retentionCount 4 -retentionAge $retentionAge -retentionHardLimit 6
+        $result = Find-PackagesToDelete -packageList $packageList -retentionCount 4 -retentionAge $retentionAge -retentionHardLimit 6
 
         # Assert
         $result | Should -HaveCount 2
@@ -151,7 +151,7 @@ Describe "Collect-PackagesToDelete tests" {
         $packageList += @{ id = 7; name = "package1"; format = "helm"; uploaded_at = (Get-Date).AddDays(-1); tags = @{ info = @("released") } }
 
         # Act
-        $result = Collect-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge 5 -retentionHardLimit 4
+        $result = Find-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge 5 -retentionHardLimit 4
 
         # Assert
         $result | Should -HaveCount 3
@@ -177,7 +177,7 @@ Describe "Collect-PackagesToDelete tests" {
         $packageList += @{ id = 5; name = "package1"; format = "helm"; uploaded_at = $oldestUploadTime; tags = @{ info = @("released") } }
 
         # Act
-        $result = Collect-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge 5 -retentionHardLimit 4
+        $result = Find-PackagesToDelete -packageList $packageList -retentionCount 2 -retentionAge 5 -retentionHardLimit 4
 
         # Assert
         $result | Should -HaveCount 2

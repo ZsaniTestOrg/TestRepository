@@ -1,4 +1,4 @@
-function Collect-PackagesToDelete {
+function Find-PackagesToDelete {
     param (
         [Parameter(Mandatory)]
         [object[]] $packageList,
