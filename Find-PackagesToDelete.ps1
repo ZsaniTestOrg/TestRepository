@@ -19,7 +19,7 @@ function Find-PackagesToDelete {
     $packageRetentionDate = (Get-Date).AddDays(-$retentionAge)
     $retainedPackageCount = 0
 
-    $packageList = $packageList | sort uploaded_at -Descending
+    $packageList = $packageList | Sort-Object uploaded_at -Descending
    
     foreach ($package in $packageList) {
         if ($retainedPackageCount -ge $retentionCount) {
