@@ -2,7 +2,6 @@ name: learn-github-actions
 on: pull_request
 jobs:
   job-id:
-    name: job-name
     runs-on: ubuntu-latest
     steps:
     - name: First Powershell step
