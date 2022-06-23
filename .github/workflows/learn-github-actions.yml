@@ -1,8 +1,8 @@
 name: learn-github-actions
 on: pull_request
 jobs:
-  check-bats-version:
-    name: my-first-job
+  job-id:
+    name: job-name
     runs-on: ubuntu-latest
     steps:
     - name: First Powershell step
