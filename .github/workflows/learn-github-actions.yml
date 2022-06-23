@@ -8,4 +8,4 @@ jobs:
     - name: First Powershell step
       shell: pwsh
       run: |
-        Write-Host "Hello world!"
+        Write-Host "Hello world! Hi!"
