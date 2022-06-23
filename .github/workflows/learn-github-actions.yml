@@ -1,5 +1,5 @@
 name: learn-github-actions
-on: [pull_request]
+on: push
 jobs:
   check-bats-version:
     name: my-first-job
