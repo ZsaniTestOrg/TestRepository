@@ -2,6 +2,7 @@ name: learn-github-actions
 on: [pull_request]
 jobs:
   check-bats-version:
+    name: my-first-job
     runs-on: ubuntu-latest
     steps:
       - name: pester-tests-report
