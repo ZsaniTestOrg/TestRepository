@@ -7,19 +7,17 @@ env:
 jobs:
   job-id-1:
     if: isFirstJob == true
-    name: job-name-1
     runs-on: ubuntu-latest
     steps:
     - name: First Powershell step
       shell: pwsh
       run: |
-        Write-Host "Hello world! Hi!"
+        Write-Host "Hello world!"
   job-id-2:
     if: isFirstJob == false
-    name: job-name-2
     runs-on: ubuntu-latest
     steps:
     - name: First Powershell step
       shell: pwsh
       run: |
-        Write-Host "Hello world! Hi!"
+        Write-Host "Hi!"
