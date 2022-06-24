@@ -1,7 +1,12 @@
 name: workflow-name
 on: pull_request
+
+env:
+  isFirstJob: true
+  
 jobs:
   job-id-1:
+    if: isFirstJob == true
     name: job-name-1
     runs-on: ubuntu-latest
     steps:
@@ -10,6 +15,7 @@ jobs:
       run: |
         Write-Host "Hello world! Hi!"
   job-id-2:
+    if: isFirstJob == false
     name: job-name-2
     runs-on: ubuntu-latest
     steps:
