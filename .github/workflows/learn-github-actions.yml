@@ -2,11 +2,12 @@ name: workflow-name
 on: pull_request
 
 env:
-  isFirstJob: true
+  jobToRun: 'first-job'
   
 jobs:
   job-id-1:
-    if: isFirstJob == true
+    name: job-name-1
+    if: jobToRun == 'first-job'
     runs-on: ubuntu-latest
     steps:
     - name: First Powershell step
@@ -14,7 +15,7 @@ jobs:
       run: |
         Write-Host "Hello world!"
   job-id-2:
-    if: isFirstJob == false
+    if: jobToRun == 'second-job'
     runs-on: ubuntu-latest
     steps:
     - name: First Powershell step
