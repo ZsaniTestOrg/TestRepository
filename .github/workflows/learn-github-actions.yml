@@ -15,6 +15,7 @@ jobs:
       run: |
         Write-Host "Hello world!"
   job-id-2:
+    name: job-name-2
     if: jobToRun == 'second-job'
     runs-on: ubuntu-latest
     steps:
