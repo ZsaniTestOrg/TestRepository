@@ -7,7 +7,7 @@ env:
 jobs:
   job-id-1:
     name: job-name-1
-    if: jobToRun == 'first-job'
+    if: $jobToRun == 'first-job'
     runs-on: ubuntu-latest
     steps:
     - name: First Powershell step
@@ -16,7 +16,7 @@ jobs:
         Write-Host "Hello world!"
   job-id-2:
     name: job-name-2
-    if: jobToRun == 'second-job'
+    if: $jobToRun == 'second-job'
     runs-on: ubuntu-latest
     steps:
     - name: First Powershell step
