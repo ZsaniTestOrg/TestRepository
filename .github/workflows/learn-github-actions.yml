@@ -1,13 +1,24 @@
-name: learn-github-actions
-on: [pull_request]
+name: Build and Deploy
+on:
+  push:
+    branches:    
+      - main
+  workflow_dispatch:
+    inputs:
+      host:
+        description: 'Host in Dev environment'
+        required: true
+        default: 'dev03' 
+        type: choice
+        options:
+        - dev03
+        - dev04
+        - dev06
+        - dev07
+
 jobs:
-  check-bats-version:
+  Tests:
+    name: Test multiple triggers
     runs-on: ubuntu-latest
     steps:
-      - name: pester-tests-report
-        uses: zyborg/pester-tests-report@v1.5.0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+    - run: echo ${{ inputs.host }}
