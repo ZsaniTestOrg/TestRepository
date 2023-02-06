@@ -11,7 +11,7 @@ jobs:
       - name: Test
         run: |
           curl -X POST https://api.github.com/repos/ZsaniTestOrg/TestRepository3/dispatches \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -H 'Accept: application/vnd.github+json' \
           -H "Authorization: Bearer {{ secrets.TOKEN }}" \
           --data '{"event_type": "Trigger Workflow" }'
       - uses: actions/checkout@v3
