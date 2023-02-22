@@ -1,6 +1,6 @@
-name-template: 'entities-v$RESOLVED_VERSION'
-tag-template: 'entities-v$RESOLVED_VERSION'
-tag-prefix: entities/
+name-template: 'backend-v$RESOLVED_VERSION'
+tag-template: 'backend-v$RESOLVED_VERSION'
+tag-prefix: backend/
 include-paths:
   - "scripts/"
   - "roles/backend/"
