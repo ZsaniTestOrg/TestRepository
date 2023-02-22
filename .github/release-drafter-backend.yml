@@ -1,5 +1,5 @@
-name-template: 'backend-v$RESOLVED_VERSION'
-tag-template: 'backend-v$RESOLVED_VERSION'
+name-template: 'backend-v$NEXT_PATCH_VERSION'
+tag-template: 'backend/$NEXT_PATCH_VERSION'
 tag-prefix: backend/
 include-paths:
   - "scripts/"
