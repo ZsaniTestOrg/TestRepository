@@ -1,0 +1,36 @@
+name-template: 'entities-v$RESOLVED_VERSION'
+tag-template: 'entities-v$RESOLVED_VERSION'
+tag-prefix: entities/
+include-paths:
+  - "scripts/"
+  - "roles/backend/"
+categories:
+  - title: 🚀 Features
+    labels:
+      - 'feature'
+      - 'enhancement'
+  - title: 🐛 Bug Fixes
+    labels:
+      - 'fix'
+      - 'bugfix'
+      - 'bug'
+  - title: 🧰 Maintenance
+    labels:
+      - chore
+autolabeler:
+  - label: 'enhancement'
+    branch:
+      - '/feature\/.+/'
+  - label: 'bug'
+    branch:
+      - '/^(bug|fix)+\/.+/'
+replacers:
+  - search: '/([A-Z][A-Z0-9]{2,}-\d+)/g'
+    replace: '[$1](https://diligentbrands.atlassian.net/browse/$1)'
+exclude-labels:
+  - 'skip-changelog'
+change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
+template: |
+  ## What’s Changed
+  
+  $CHANGES
