@@ -26,10 +26,10 @@ jobs:
           filters: | 
             'backend':
               - scripts/**
-              - roles/backend**
+              - roles/backend/**
             'frontend':
               - scripts/**
-              - roles/frontend**
+              - roles/frontend/**
 
   backend_release_draft:
     runs-on: ubuntu-latest
