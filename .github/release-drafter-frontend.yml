@@ -1,9 +1,9 @@
-name-template: 'entities-v$RESOLVED_VERSION'
-tag-template: 'entities-v$RESOLVED_VERSION'
-tag-prefix: entities/
+name-template: 'frontend-v$RESOLVED_VERSION'
+tag-template: 'frontend-v$RESOLVED_VERSION'
+tag-prefix: frontend/
 include-paths:
   - "scripts/"
-  - "role/frontend/"
+  - "roles/frontend/"
 categories:
   - title: 🚀 Features
     labels:
