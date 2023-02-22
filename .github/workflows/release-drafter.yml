@@ -8,8 +8,33 @@ on:
     types: [edited, labeled, unlabeled, synchronize]
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      backend: ${{ steps.filter.outputs.backend }}
+      frontend: ${{ steps.filter.outputs.frontend }}
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with: 
+          # Add a new filter for each Octopus space to be monitored for change
+          filters: | 
+            'backend':
+              - scripts/**
+              - roles/backend**
+            'frontend':
+              - scripts/**
+              - roles/frontend**
+
   backend_release_draft:
     runs-on: ubuntu-latest
+    needs: changes
+    if: ${{ needs.changes.outputs.backend == 'true' }}
     steps:
       - name: '[Backend] Release Drafter'
         uses: release-drafter/release-drafter@v5.23.0
@@ -18,9 +43,12 @@ jobs:
           disable-autolabeler: false
           disable-releaser: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+          
   frontend_release_draft:
     runs-on: ubuntu-latest
+    needs: changes
+    if: ${{ needs.changes.outputs.frontend == 'true' }}
     steps:
       - name: '[Frontend] Release Drafter'
         uses: release-drafter/release-drafter@v5.23.0
