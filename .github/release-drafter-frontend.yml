@@ -1,8 +1,5 @@
 name-template: '$NEXT_PATCH_VERSION-frontend'
 tag-template: '$NEXT_PATCH_VERSION-frontend'
-include-paths:
-  - "scripts/"
-  - "roles/frontend/"
 categories:
   - title: 🚀 Features
     labels:
