@@ -1,6 +1,5 @@
 name-template: 'backend-v$NEXT_PATCH_VERSION'
-tag-template: 'backend/$NEXT_PATCH_VERSION'
-tag-prefix: backend/
+tag-template: '$NEXT_PATCH_VERSION-backend'
 include-paths:
   - "scripts/"
   - "roles/backend/"
