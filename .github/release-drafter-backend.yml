@@ -1,5 +1,5 @@
-name-template: '$NEXT_PATCH_VERSION-backend'
-tag-template: '$NEXT_PATCH_VERSION-backend'
+name-template: '$RESOLVED_VERSION-backend'
+tag-template: '$RESOLVED_VERSION-backend'
 categories:
   - title: 🚀 Features
     labels:
@@ -20,6 +20,17 @@ autolabeler:
   - label: 'bug'
     branch:
       - '/^(bug|fix)+\/.+/'
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'enhancement'
+  patch:
+    labels:
+      - 'bug'
+  default: patch
 replacers:
   - search: '/([A-Z][A-Z0-9]{2,}-\d+)/g'
     replace: '[$1](https://diligentbrands.atlassian.net/browse/$1)'
