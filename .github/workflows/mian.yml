@@ -1,11 +1,11 @@
 name: workflow_01
-env: 
-  TestVar: Hello
 
 on:
   push:
     branches:
       - main
+env: 
+  TestVar: Hello
 
 jobs:
   Build:
