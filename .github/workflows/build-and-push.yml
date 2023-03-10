@@ -1,0 +1,16 @@
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      ConfigurationMode:
+        type: string
+        required: true
+
+jobs:
+  build:
+    name: Build and Publish Tests 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log
+        run: echo ${{ inputs.ConfigurationMode }}
