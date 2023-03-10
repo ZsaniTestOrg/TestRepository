@@ -11,7 +11,7 @@ jobs:
   Build:
     uses: ./.github/workflows/build-and-push.yml
     with:
-      ConfigurationMode: ${{ env.TestVar }
+      ConfigurationMode: ${{ env.TestVar }}
         
 #       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 #       - name: Test
