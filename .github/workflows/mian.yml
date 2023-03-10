@@ -8,11 +8,10 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Log
-        run: echo ${{ env.TestVar }}
+  Build:
+    uses: ./.github/workflows/build-and-push.yml
+    with:
+      ConfigurationMode: ${{ env.TestVar }
         
 #       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 #       - name: Test
