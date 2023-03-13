@@ -1,4 +1,5 @@
-name-template: '$RESOLVED_VERSION-backend'
+name-template: '$RESOLVED_VERSION'
+tag-template: '$RESOLVED_VERSION'
 version-template: '$MAJOR.$MINOR.$PATCH-backend'
 categories:
   - title: 🚀 Features
