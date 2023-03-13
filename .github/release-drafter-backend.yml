@@ -1,6 +1,6 @@
 name-template: '$RESOLVED_VERSION-backend'
 tag-template: '$RESOLVED_VERSION-backend'
-version-template: '$RESOLVED_VERSION-backend'
+version-template: '$MAJOR.$MINOR.$PATCH-backend'
 categories:
   - title: 🚀 Features
     labels:
