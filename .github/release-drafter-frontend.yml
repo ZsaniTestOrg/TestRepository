@@ -1,5 +1,6 @@
-name-template: '$NEXT_PATCH_VERSION-frontend'
-tag-template: '$NEXT_PATCH_VERSION-frontend'
+name-template: 'frontend-$NEXT_MINOR_VERSION'
+tag-template: 'frontend-$NEXT_MINOR_VERSION'
+tag-prefix: 'frontend-'
 categories:
   - title: 🚀 Features
     labels:
