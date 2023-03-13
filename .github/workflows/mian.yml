@@ -5,11 +5,12 @@ on:
 
 jobs:
   Build:
+    if: ${{ github.ref == 'refs/heads/master'|| github.ref == 'refs/tags/**' }}
     runs-on: ubuntu-latest
     steps:
       - name: Log
         run: |
-          echo ${{ github.ref }}
+          echo "Refs: ${{ github.ref }}"
     
 
 # jobs:
