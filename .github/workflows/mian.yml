@@ -1,23 +1,28 @@
 name: workflow_01
 
 on:
-  push:
-    branches:
-      - main
-env: 
-  TestVar: Hello
+  workflow_dispatch:
 
 jobs:
   Build:
-    uses: ./.github/workflows/build-and-push.yml
-    with:
-      ConfigurationMode: ${{ env.TestVar }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log
+        run: |
+          echo ${{ github.ref }}
+    
+
+# jobs:
+#   Build:
+#     uses: ./.github/workflows/build-and-push.yml
+#     with:
+#       ConfigurationMode: ${{ env.TestVar }}
         
-#       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#       - name: Test
-#         run: |
-#           curl -X POST https://api.github.com/repos/ZsaniTestOrg/TestRepository3/dispatches \
-#           -H 'Accept: application/vnd.github+json' \
-#           -H "Authorization: Token {{ secrets.TOKEN }}" \
-#           --data '{"event_type": "Trigger Workflow" }'
-#       - uses: actions/checkout@v3
+# #       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+# #       - name: Test
+# #         run: |
+# #           curl -X POST https://api.github.com/repos/ZsaniTestOrg/TestRepository3/dispatches \
+# #           -H 'Accept: application/vnd.github+json' \
+# #           -H "Authorization: Token {{ secrets.TOKEN }}" \
+# #           --data '{"event_type": "Trigger Workflow" }'
+# #       - uses: actions/checkout@v3
