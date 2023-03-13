@@ -1,5 +1,5 @@
 name-template: 'backend-$NEXT_MINOR_VERSION'
-tag-template: '$NEXT_MINOR_VERSION'
+tag-template: 'backend-$NEXT_MINOR_VERSION'
 tag-prefix: 'backend-'
 categories:
   - title: 🚀 Features
