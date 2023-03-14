@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Log
         run: |
-          echo "Refs: ${{ github.ref }}"
+          sudo docker images
     
 
 # jobs:
