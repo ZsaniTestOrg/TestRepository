@@ -1,0 +1,11 @@
+mode: ContinuousDeployment
+branches:
+  feature: {}
+  master:
+    mode: ContinuousDeployment
+    increment: Minor
+ignore:
+  sha: []
+increment: Patch
+merge-message-formats: {}
+commit-message-incrementing: MergeMessageOnly
